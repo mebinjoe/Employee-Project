@@ -1,0 +1,17 @@
+@CHARSET "ISO-8859-1";
+
+html, body {
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    transform: scale(0.97);
+   	transform-origin: -180% -60%;
+}
+
+h3 {
+	font-family: verdana;
+	color: #B45B5B;
+	font-size: 15px;
+}

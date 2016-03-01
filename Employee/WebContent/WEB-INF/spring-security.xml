@@ -1,0 +1,40 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+	http://www.springframework.org/schema/security
+	http://www.springframework.org/schema/security/spring-security.xsd">
+	
+	<!-- Stateless RESTful services use BASIC authentication -->
+    <http realm="Employee Application" create-session="stateless" pattern="/users/" use-expressions="true">
+        <intercept-url pattern="/users/" access="isAuthenticated()" />        
+        <http-basic/>
+    </http>    
+    
+    <!-- Spring Security Authentication and Authorization -->	
+	<http auto-config="true" use-expressions="true">
+		<intercept-url pattern="/welcome" access="permitAll" />		
+		<form-login login-processing-url="/j_spring_security_check" 
+			login-page="/login" default-target-url="/welcome"			
+			username-parameter="username" password-parameter="password"
+			always-use-default-target="true" authentication-failure-url="/loginError" />		
+		
+		<logout logout-success-url="/" delete-cookies="JSESSIONID"/>
+		
+		<!-- enable csrf protection -->
+		<csrf />
+		
+		 <session-management>
+    		<concurrency-control
+      		 	max-sessions="1"
+       			expired-url="/sessionTimeout" />
+  		</session-management>  	  		
+	</http>	
+				
+	<authentication-manager alias="authenticationManager">
+        <authentication-provider ref="customAuthenticationProvider" />
+    </authentication-manager>
+    
+
+</beans:beans>

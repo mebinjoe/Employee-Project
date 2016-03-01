@@ -1,0 +1,34 @@
+
+ a.link { 
+	font-family: verdana;
+    color: #696666;
+    text-decoration: none;
+    cursor: hand;
+}
+
+a.link  { 
+    color: #776969;
+    font-weight: bold;
+    margin-left: 5px;
+}
+ a.op { 
+	font-family: verdana;
+    color: #4D7B57;
+    text-decoration: none;
+    cursor: hand;
+}
+
+a.op  { 
+    color: #4D7B57;
+}
+a.sk { 
+	font-family: verdana;
+    color: #7B402B;
+    text-decoration: none;
+    cursor: hand;
+}
+
+a.sk  { 
+    color: #7B402B;
+}
+

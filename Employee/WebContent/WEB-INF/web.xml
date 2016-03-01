@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://java.sun.com/xml/ns/javaee" 
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
+id="WebApp_ID" version="3.0">
+	
+	<!-- Dispatcher Servlet and URL Mapping-->			
+	<servlet>
+    	<servlet-name>spring</servlet-name>
+    	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>    	
+    	<load-on-startup>1</load-on-startup>  
+  	</servlet>  
+  
+  	<servlet-mapping>
+  	  	<servlet-name>spring</servlet-name>  	
+    	<url-pattern>/</url-pattern>
+  	</servlet-mapping>   
+  	
+  	<!-- Context Loader Listener-->  	 
+  	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
+	
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/spring-servlet.xml, 
+			/WEB-INF/spring-security.xml
+		</param-value>
+	</context-param>
+		
+	
+	<!-- Spring Security -->	
+	<listener>
+    	<listener-class> org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
+	</listener>
+	
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy
+		</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	
+	<!-- Exceptions and Error Handling -->
+ 	<error-page>
+   		<error-code>404</error-code>
+   	 	<location>/error.jsp</location>
+	</error-page>
+	
+	<error-page>
+   		<error-code>403</error-code>
+   	 	<location>/403</location>
+	</error-page>
+
+	<error-page>
+   		 <error-code>400</error-code>
+    	<location>/400</location>
+	</error-page>
+	
+	<error-page>
+   		<error-code>401</error-code>
+   	 	<location>/401</location>
+	</error-page>
+	
+	<error-page>
+    	<error-code>500</error-code>
+    	<location>/500</location>
+	</error-page>
+	
+	
+	<!-- Session Timeout and Concurrency Control -->
+	<listener>
+  		<listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
+	</listener>
+
+	<session-config>
+    	<session-timeout>30</session-timeout>
+    	<tracking-mode>COOKIE</tracking-mode>
+	</session-config> 
+	
+	
+	<!-- for 'Access-Control-Allow-Origin' in json chartjs -->
+	<filter>
+  		<filter-name>CorsFilter</filter-name>
+  		<filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+  		<filter-name>CorsFilter</filter-name>
+  		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+		
+
+</web-app>

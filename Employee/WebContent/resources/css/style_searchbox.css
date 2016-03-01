@@ -1,0 +1,38 @@
+
+	 input[class="submitSearch"] { 
+    	color:#050; 
+    	font: bold 84% 'trebuchet ms',helvetica,sans-serif; 
+    	background-color:#fed; 
+   	 	border:1px solid; 
+    	border-color: #696 #363 #363 #696;  
+    	padding: 0;     	   
+    	position: absolute;   
+    	top: 2px;
+    	height: 31px;
+    	width: 70px;
+    	font-size: 14px;
+    	cursor: pointer;
+   		cursor: hand;
+   		margin: 7px;
+	}
+
+
+	#searchText {
+		border:2px solid #59BAE8;
+		border-radius:10px;
+		height: 20px;
+		width: 240px;
+		float: left; 
+		width: 200px;	
+	}
+
+	select[class="searchType"] {
+  		font-family: Lucida Sans Unicode;
+  		border: 2px solid #59BAE8;  
+  		padding: 0px;		
+	}
+
+ 
+ 
+ 
+ 

@@ -1,0 +1,17 @@
+#skillLevel {
+ -webkit-appearance: none;  
+ -moz-appearance: none;  
+ border: 0 !important; 
+
+ color: #001726;
+ -webkit-border-radius: 5px;
+ border-radius: 5px;
+ font: normal 13px/100% Verdana, Tahoma, sans-serif;
+ font-size: 14px;
+ padding: 10px;
+ width: 18%;
+ cursor: pointer;
+
+ background: #FFFFFF url("../images/drop-down-arrow.gif") no-repeat right center;
+ background-size: 40px 37px;
+}
